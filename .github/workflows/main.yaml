@@ -1,0 +1,16 @@
+name: Test get-license
+on:
+  workflow_dispatch:
+    inputs:
+
+env:
+  ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+
+jobs:
+  get-license-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./get-license https://api.github.com/repos/CoreOffice/XMLCoder/license
+      - run: ./get-license https://api.github.com/repos/MaxDesiatov/XMLCoder/license
+      - run: ./get-license https://api.github.com/repositories/156681868/license
